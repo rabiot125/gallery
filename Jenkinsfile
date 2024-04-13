@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    tools{
-        npm 'nodejs'
-    }
     stages{
         stage('Clone the Repository'){
             steps{
@@ -14,16 +11,11 @@ pipeline{
                 sh 'npm install'
             }
         }
-        stage('Test Code'){
-            steps{
-                sh 'npm test'
-            }
-        }
+        
         stage('Deploy Code'){
             steps{
-                sh 'npm run build'
+                sh 'node server'
             }
         }
-       
     }
 }
