@@ -30,7 +30,7 @@ pipeline{
     }
     post {
             success{
-                def renderUrl : "https://gallery-zr59.onrender.com/"
+                def renderUrl = "https://gallery-zr59.onrender.com/"
                 slackSend (
                     channel: '#slack-integration',
                     color: 'good', 
