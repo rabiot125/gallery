@@ -28,6 +28,10 @@
     </nav>
   </div>
     
+  <div style="text-align: center;">
+    <h2>MILESTONE 2</h2>
+  </div>
+  <!-- Remove the unnecessary code block -->
     <div class="container">
         <h1>Image Upload </h1>
         <%= typeof msg != 'undefined' ? msg : '' %>
@@ -51,7 +55,7 @@
 
               <div class="column">
 
-                <a href="/image/<%= image._id %>"> <img src="<%= image.path %>" class="responsive-img" alt="<%= image.name %>"> </a>
+                <a href="/image/<%= image._id %>"> <img src="/images/<%= image.path %>" class="responsive-img" alt="<%= image.name %>"> </a>
               </div>
             <% }); %>  
           </div>
