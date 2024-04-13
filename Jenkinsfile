@@ -30,9 +30,13 @@ pipeline{
     }
     post {
             success{
-                slackSend channel: '#slack-integration',
-                 color: 'good', 
-                 message: "Build Successful: ${currentBuild.fullDisplayName}"
+                slackSend (
+                    baseUrl: 'https://app.slack.com/client/T06U67L4P1Q/C06U67SACQ2',
+                    channel: '#slack-integration',
+                    color: 'good', 
+                    message: "Build Successful: ${currentBuild.fullDisplayName}"
+                    tokenCredential:'al98YsngJ1xmRFZnvf4OQ3W2'
+                    )
             }
         }
 }
