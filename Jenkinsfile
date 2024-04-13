@@ -30,12 +30,16 @@ pipeline{
     }
     post {
             success{
-                def renderUrl = "https://gallery-zr59.onrender.com/"
-                slackSend (
-                    channel: '#slack-integration',
-                    color: 'good', 
-                    message: "Build Successful: ${currentBuild.fullDisplayName}\nRender URL: ${renderUrl}" 
-                    )
+                script {
+                      def renderUrl = "https://gallery-zr59.onrender.com/"
+
+                      slackSend (
+                        channel: '#slack-integration',
+                        color: 'good', 
+                        message: "Build Successful: ${currentBuild.fullDisplayName}\nRender URL: ${renderUrl}" 
+                        )
+                }
+                
             }
         }
 }
