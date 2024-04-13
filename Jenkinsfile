@@ -30,7 +30,7 @@ pipeline{
             success{
                 slackSend channel: '#slack-integration',
                  color: 'good', 
-                 message: 'Build Successful':${currentBuild.fullDisplayName}
+                 message: "Build Successful: ${currentBuild.fullDisplayName}"
             }
         }
 
