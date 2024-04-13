@@ -22,8 +22,17 @@ pipeline{
         
         stage('Deploy Code'){
             steps{
-                sh 'node server'
+                echo 'Deploying the code'
+                //sh 'node server'
             }
         }
+        post{
+            success{
+                slackSend channel: '#slack-integration',
+                 color: 'good', 
+                 message: 'Build Successful':${currentBuild.fullDisplayName}
+            }
+        }
+
     }
 }
