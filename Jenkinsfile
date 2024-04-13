@@ -31,12 +31,9 @@ pipeline{
     post {
             success{
                 slackSend (
-                    baseUrl: 'https://kipkoechip1.slack.com/services/6958190106707',
-                    //teamDomain: 'kipkoechip1',
                     channel: '#slack-integration',
                     color: 'good', 
-                    message: "Build Successful: ${currentBuild.fullDisplayName}",
-                    token:'al98YsngJ1xmRFZnvf4OQ3W2'
+                    message: "Build Successful: ${currentBuild.fullDisplayName}"
                     )
             }
         }
