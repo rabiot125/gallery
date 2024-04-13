@@ -26,13 +26,13 @@ pipeline{
                 //sh 'node server'
             }
         }
-        post{
+        
+    }
+    post {
             success{
                 slackSend channel: '#slack-integration',
                  color: 'good', 
                  message: "Build Successful: ${currentBuild.fullDisplayName}"
             }
         }
-
-    }
 }
