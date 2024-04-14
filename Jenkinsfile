@@ -29,6 +29,16 @@ pipeline{
         
     }
     post {
+          failure {
+            emailext (
+                subject: "Test Failure: ${currentBuild.fullDisplayName}",
+                body: "There were test failures in the build. Please check the Jenkins console output for details.",
+                to:"test@gmail.com"
+            )
+        }
+
+
+
             success{
                 script {
                       def renderUrl = "https://gallery-zr59.onrender.com/"
@@ -36,7 +46,7 @@ pipeline{
                       slackSend (
                         channel: '#slack-integration',
                         color: 'good', 
-                        message: "Build Successful: ${currentBuild.fullDisplayName}\nRender URL: ${renderUrl}" 
+                        message: "Build Successful: ${currentBuild.fullDisplayName}\nRender URL: ${renderUrl}\nBuild URL: ${env.BUILD_URL}" 
                         )
                 }
                 
